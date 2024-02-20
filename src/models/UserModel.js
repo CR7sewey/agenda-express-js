@@ -75,15 +75,15 @@ class User {
         if (this.errors.length > 0) {
             return;
         }
-    
+        
         this.user = await UserModel.findOne({email: this.body.email});
+        //console.log('AQUIII',this.user)
         if (!this.user) {
+            console.log('AQUI3')
             this.errors.push('User doesnt exists!');
-            this.user = null;
             return;
         }
-
-        if (!bcriptjs.compareSync(this.body.password, user.password)) {
+        if (!bcriptjs.compareSync(this.body.password, this.user.password)) {
             this.errors.push('Password doesnt match!');
             this.user = null;
             return;

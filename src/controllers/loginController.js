@@ -36,7 +36,7 @@ exports.logar = async function(req, res, next) {
     try {
         const login = new User(req.body);
         await login.login();
-        console.log(login);
+        console.log(login,'-------------');
         if (login.errors.length > 0) {
             req.flash('errors',login.errors);
             req.session.save(function() {
