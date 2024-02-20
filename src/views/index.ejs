@@ -6,15 +6,33 @@
             <h1 class="text-center">Contacts</h1>
             <p class="text-center lead">Your contacts.</p>
             <%- include('includes/_messages'); %>
+            <% if(lista_contatos.length >0) { %>
             <div class="responsive-table">
                 <table class="table my-3">
                     <tr>
-                        <td>Mike</td>
-                        <td>Mike</td>
-                        <td>Mike</td>
-                        <td>Mike</td>
+                        <th>NAME</th>
+                        <th>LAST NAME</th>
+                        <th>PHONE</th>
+                        <th>EMAIL</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+
                     </tr>
+                    <% lista_contatos.forEach(c => { %>
+                    <tr>
+                        <td><%= c.nome %></td>
+                        <td><%= c.sobrenome %></td>
+                        <td><%= c.phone %></td>
+                        <td><%= c.email %></td>
+                        <td><a href="contato/<%= c._id %>">Edit</a></td>
+                        <td><a class="text-danger" href="contato/delete/<%= c._id %>">Delete</a></td>
+
+                    </tr>
+                    <% }) %>
                 </table>
+                <% } else { %>
+                    <p class="text-center-lead">No contacts :(</p>
+                <% } %>
             </div>
         </div>
         <div class="col-lg-2"></div>

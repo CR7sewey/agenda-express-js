@@ -17,9 +17,11 @@ route.get('/login/logout', loginController.logout);
 
 // Rotas de contacto
 route.get('/contato/', loginRequired ,contatoController.index);
-route.post('/contato/register',contatoController.register);
-route.get('/contato/:id',contatoController.editIndex);
-route.post('/contato/edit/:id',contatoController.edit);
+route.post('/contato/register', loginRequired ,contatoController.register);
+route.get('/contato/:id',loginRequired ,contatoController.editIndex);
+route.post('/contato/edit/:id',loginRequired ,contatoController.edit);
+route.get('/contato/delete/:id',loginRequired ,contatoController.delete);
+
 
 
 

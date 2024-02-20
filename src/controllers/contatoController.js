@@ -49,8 +49,8 @@ exports.edit = async function(req,res,next) {
     try{
 
         if (!req.params.id) return res.render('404');
-    const contato = new Contato(req.body);
-    await contato.edit(req.params.id);
+            const contato = new Contato(req.body);
+            await contato.edit(req.params.id);
 
     if (contato.errors.length > 0) {
         console.log('AQUI 2 ---')
@@ -74,4 +74,13 @@ exports.edit = async function(req,res,next) {
     }
     
 
+};
+
+exports.delete = async function(req, res, next) {
+    await Contato.deleteContact(req.params.id);
+    req.flash('success','Contato apagado com sucesso')
+    req.session.save(function() {
+        return res.redirect('back');
+}); // salaver sessao
+    return;
 };

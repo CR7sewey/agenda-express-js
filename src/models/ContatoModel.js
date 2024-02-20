@@ -18,14 +18,7 @@ function Contato(body) {
     this.contato = null;
 }
 
-// nao esta atrelado ao prototype, noa precispo de instanciar, estatico
-Contato.searchId = async function(id) {
-    if (typeof id !== 'string') {
-        return;
-    }
-    const contato = await ContatoModel.findById(id);
-    return contato
-}
+
 
 Contato.prototype.contactExists = async function() {
         const user = await ContatoModel.findOne({email: this.body.email});
@@ -96,8 +89,27 @@ Contato.prototype.edit = async function(id) {
 }
 
 
+//METODOS ESTATICOS
+// nao esta atrelado ao prototype, noa precispo de instanciar, estatico
+Contato.searchId = async function(id) {
+    if (typeof id !== 'string') {
+        return;
+    }
+    const contato = await ContatoModel.findById(id);
+    return contato
+}
 
+Contato.getAll = async function() {
+    const contato = await ContatoModel.find().sort({criadoEm: -1}); // decrescente
+    return contato;
+}
 
+Contato.deleteContact = async function(id) {
+    if (typeof id !== 'string') {
+        return;
+    }
+    await ContatoModel.findByIdAndDelete(id,this.body);
+}
 
 
 
