@@ -44,20 +44,21 @@ class User {
 
     async register() { // retorna promise pq é async, assim, no controler a funcao tmb tem de ser
         this.valida();
+        if (this.errors.length > 0) {
+            return;
+        }
+
         await this.userExists();
         if (this.errors.length > 0) {
             return;
         }
         
-        try {
-            const salt = bcriptjs.genSaltSync();
-            this.body.password =bcriptjs.hashSync(this.body.password,salt); // encriptografar password
-            const user = await UserModel.create(this.body);
-            this.user = user; // acessar no controler se quiser
-        }
-        catch(e) {
-            console.log(e);
-        }
+     
+        const salt = bcriptjs.genSaltSync();
+        this.body.password =bcriptjs.hashSync(this.body.password,salt); // encriptografar password
+        const user = await UserModel.create(this.body);
+        this.user = user; // acessar no controler se quiser
+    
     }
 
     cleanUp() {
@@ -67,6 +68,27 @@ class User {
             }
         }
         this.body = {email: this.body.email, password: this.body.password};
+    }
+
+    async login() {
+        this.valida();
+        if (this.errors.length > 0) {
+            return;
+        }
+    
+        this.user = await UserModel.findOne({email: this.body.email});
+        if (!this.user) {
+            this.errors.push('User doesnt exists!');
+            this.user = null;
+            return;
+        }
+
+        if (!bcriptjs.compareSync(this.body.password, user.password)) {
+            this.errors.push('Password doesnt match!');
+            this.user = null;
+            return;
+        }
+    
     }
 
 }

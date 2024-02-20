@@ -29,3 +29,32 @@ exports.register = async function(req, res, next) {
     }
     //
 };
+
+
+
+exports.logar = async function(req, res, next) {
+    try {
+        const login = new User(req.body);
+        await login.login();
+        console.log(login);
+        if (login.errors.length > 0) {
+            req.flash('errors',login.errors);
+            req.session.save(function() {
+                return res.redirect('back');
+            }); // salaver sessao 
+            return;
+        }
+
+        req.flash('success','Usuario logado com sucesso');
+        req.session.user = login.user;
+        req.session.save(function() {
+                return res.redirect('back');
+            }); // salaver sessao
+    
+        }
+         
+    catch(e) {
+        console.log(e);
+        return res.render('404');
+    }
+}
