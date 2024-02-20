@@ -108,7 +108,7 @@ Contato.deleteContact = async function(id) {
     if (typeof id !== 'string') {
         return;
     }
-    await ContatoModel.findByIdAndDelete(id,this.body);
+    await ContatoModel.findByIdAndDelete({_id: id});
 }
 
 

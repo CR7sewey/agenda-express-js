@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-10 my-3">
                     <h4>You can login!</h4>
-                    <form action="/login/login" method="POST">
+                    <form class="form-login" action="/login/login" method="POST">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                         <div class="mb-3">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-5 my-3">
                     <h4>You can register!</h4>
-                    <form action="/login/register" method="POST">
+                    <form class="form-register" action="/login/register" method="POST">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                         <div class="mb-3">
