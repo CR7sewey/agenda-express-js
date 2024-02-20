@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // validacao caracteres
 const HomeSchema = new mongoose.Schema({
-    titulo: {type: String, require: true},
+    titulo: {type: String, required: true},
     descricao: String,
 
 });

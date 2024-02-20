@@ -1,5 +1,7 @@
 exports.middlewareGlobal = (req,res,next) => {
-    res.locals.umaVariavelLocal = 'Este é o valor da variavel local';
+    res.locals.errors = req.flash('errors'); // capturo erros
+    res.locals.sucess = req.flash('success'); // capturo erros
+
     //console.log();
     //console.log('Estou no middle global');
     //onsole.log();
