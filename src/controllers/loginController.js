@@ -1,4 +1,4 @@
-// HOME
+// Login
 exports.index = (req, res, next) => {
-    res.render('index');
+    res.render('login');
 };
