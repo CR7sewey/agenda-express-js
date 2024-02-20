@@ -44,3 +44,34 @@ exports.editIndex = async function(req,res,next) {
 
     res.render('contato',{contato: contato})
 };
+
+exports.edit = async function(req,res,next) {
+    try{
+
+        if (!req.params.id) return res.render('404');
+    const contato = new Contato(req.body);
+    await contato.edit(req.params.id);
+
+    if (contato.errors.length > 0) {
+        console.log('AQUI 2 ---')
+
+        req.flash('errors',contato.errors);
+        req.session.save(function() {
+            return res.redirect('back');
+        }); // salaver sessao 
+        return;
+    }
+    console.log('AQUI 3 ---')
+
+    req.flash('success','Contato atualizado com sucesso');
+        req.session.save(function() {
+            return res.redirect(`/contato/${contato.contato._id}`);
+    }); // salaver sessao
+    return;
+    }
+    catch(e){
+        res.render('404');
+    }
+    
+
+};

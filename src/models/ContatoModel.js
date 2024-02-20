@@ -18,7 +18,7 @@ function Contato(body) {
     this.contato = null;
 }
 
-// nao esta atrelado ao prototype, noa precispo de instanciar
+// nao esta atrelado ao prototype, noa precispo de instanciar, estatico
 Contato.searchId = async function(id) {
     if (typeof id !== 'string') {
         return;
@@ -82,6 +82,18 @@ Contato.prototype.cleanUp = function() {
         email: this.body.email};
 
 };
+
+Contato.prototype.edit = async function(id) {
+    if (typeof id !== 'string') {
+        return;
+    }
+    this.valida();
+    if (this.errors.length>0) {
+        return;
+    }
+    this.contato = await ContatoModel.findByIdAndUpdate(id,this.body, {new: true}); 
+
+}
 
 
 
