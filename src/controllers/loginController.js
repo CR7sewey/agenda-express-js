@@ -2,6 +2,9 @@
 const User = require('../models/UserModel');
 
 exports.index = (req, res, next) => {
+    if (req.session.user) {
+        return res.render('login-logado');
+    }
     res.render('login');
 };
 
@@ -58,3 +61,11 @@ exports.logar = async function(req, res, next) {
         return res.render('404');
     }
 }
+
+exports.logout = async function(req, res, next) {
+    //const logout = new User(req.body);
+    req.session.destroy();
+    res.redirect('/')
+
+}
+
