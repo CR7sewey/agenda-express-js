@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator  = require('validator');
+const bcriptjs = require('bcryptjs');
 
 // validacao caracteres
 const UserSchema = new mongoose.Schema({
@@ -24,20 +25,35 @@ class User {
         if (!validator.isEmail(this.body.email)) {
             this.errors.push('E-mail invalid!');
         }
+        
+  
         //senha ter entre 3 e 8
         if (this.body.password.length <3 || this.body.password.length >8 ) {
             this.errors.push('Senha tem de ter entre 3 e 8 caracteres!');
         }
     }
 
+    async userExists() { // async pq vamos à bd
+        const user = await UserModel.findOne({email: this.body.email});
+        if (user) {
+            this.errors.push('E-mail already registered!');
+            return;
+        }
+
+    }
+
     async register() { // retorna promise pq é async, assim, no controler a funcao tmb tem de ser
         this.valida();
+        await this.userExists();
         if (this.errors.length > 0) {
             return;
         }
+        
         try {
-        const user = await UserModel.create(this.body);
-        this.user = user; // acessar no controler se quiser
+            const salt = bcriptjs.genSaltSync();
+            this.body.password =bcriptjs.hashSync(this.body.password,salt); // encriptografar password
+            const user = await UserModel.create(this.body);
+            this.user = user; // acessar no controler se quiser
         }
         catch(e) {
             console.log(e);
