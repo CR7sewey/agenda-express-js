@@ -21,72 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:root {
-    --primary-color:  rgb(49, 75, 128);
-    --primary-color-darker:  rgb(35, 54, 93);
-}
-
-* {
-    box-sizing: border-box;
-    outline: 0;
-}
-
-html {
-    font-size: 62.5%;
-  }
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary-color);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.8rem;
-    line-height: 1.5rem;
-}
-
-.container {
-    max-width: 64rem;
-    margin: 5rem auto;
-    padding: 2rem;
-    background-color: rgb(234, 244, 244);
-    border-radius: 1rem;
-}
-
-form input, form label, form button{
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-form input {
-    font-size: 2.4rem;
-    height: 5rem;
-    padding: 0 2rem;
-}
-
-form input:focus {
-    outline: 0.1rem solid var(--primary-color);
-}
-
-form button {
-    border: none;
-    background-color: var(--primary-color);
-    font-size: 1.8rem;
-    font-weight: 700;
-    padding: 1rem;
-    color: white;
-    cursor: pointer;
-    height: 5rem;
-    margin-top: 2rem;
-}
-
-form button:hover {
-    background-color: var(--primary-color-darker);
-}
-
-form button:active {
-    background-color: red;
-}`, "",{"version":3,"sources":["webpack://./frontend/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,kCAAkC;IAClC,wCAAwC;AAC5C;;AAEA;IACI,sBAAsB;IACtB,UAAU;AACd;;AAEA;IACI,gBAAgB;EAClB;;AAEF;IACI,SAAS;IACT,UAAU;IACV,sCAAsC;IACtC,mJAAmJ;IACnJ,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;IACb,oCAAoC;IACpC,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,0CAA0C;AAC9C;;AAEA;IACI,YAAY;IACZ,sCAAsC;IACtC,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,6CAA6C;AACjD;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":[":root {\r\n    --primary-color:  rgb(49, 75, 128);\r\n    --primary-color-darker:  rgb(35, 54, 93);\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n    outline: 0;\r\n}\r\n\r\nhtml {\r\n    font-size: 62.5%;\r\n  }\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: var(--primary-color);\r\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n    font-size: 1.8rem;\r\n    line-height: 1.5rem;\r\n}\r\n\r\n.container {\r\n    max-width: 64rem;\r\n    margin: 5rem auto;\r\n    padding: 2rem;\r\n    background-color: rgb(234, 244, 244);\r\n    border-radius: 1rem;\r\n}\r\n\r\nform input, form label, form button{\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 1rem;\r\n}\r\n\r\nform input {\r\n    font-size: 2.4rem;\r\n    height: 5rem;\r\n    padding: 0 2rem;\r\n}\r\n\r\nform input:focus {\r\n    outline: 0.1rem solid var(--primary-color);\r\n}\r\n\r\nform button {\r\n    border: none;\r\n    background-color: var(--primary-color);\r\n    font-size: 1.8rem;\r\n    font-weight: 700;\r\n    padding: 1rem;\r\n    color: white;\r\n    cursor: pointer;\r\n    height: 5rem;\r\n    margin-top: 2rem;\r\n}\r\n\r\nform button:hover {\r\n    background-color: var(--primary-color-darker);\r\n}\r\n\r\nform button:active {\r\n    background-color: red;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

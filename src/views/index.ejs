@@ -1,33 +1,29 @@
 <%- include('includes/_head'); %>
+<%- include('includes/_nav'); %>
     <section class="container">
-        <h1>
-            <!--- JAVASCRIPT PURO, context dos controlers --->
-            <% if(typeof titulo !== 'undefined') { %>
-                <%= titulo %><br>
-                <%- titulo %>
-            <% } else { %>
-                Not a title
-            <% } %>
-
-            <% numeros.forEach(num => { %>
-                <%= num %><br>
-            <% }); %>
-
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Repellendus nisi explicabo saepe voluptatibus consequuntur et corporis
-          maxime quos, doloribus vitae voluptatum quisquam necessitatibus
-          pariatur veritatis exercitationem beatae officiis suscipit Ea!
-        </p>
-        <form action="/" method="POST">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <input type="text" name="nome">
-            <button>Submit</button>
-        </form>
-       
+        <div class="col-lg-2"></div>
+        <div class="col-lg-12 my-3">
+            <h1 class="text-center">Contacts</h1>
+            <p class="text-center lead">Your contacts.</p>
+            <div class="row">
+                <div class="col my-3">
+                    <div class="alert alert-danger">Um erro qq</div>
+                </div>
+            </div>
+            <div class="responsive-table">
+                <table class="table my-3">
+                    <tr>
+                        <td>Mike</td>
+                        <td>Mike</td>
+                        <td>Mike</td>
+                        <td>Mike</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
 
 
     </section>
     
-    <%- include('includes/_footer'); %>
+<%- include('includes/_footer'); %>
